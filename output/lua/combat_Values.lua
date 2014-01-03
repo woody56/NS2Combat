@@ -2,7 +2,7 @@
 //
 //   	NS2 Combat Mod     
 //	Made by JimWest and MCMLXXXIV, 2012
-//
+//  kck 18man tweaks
 //________________________________
 
 // combat_Values.lua
@@ -14,9 +14,11 @@
 Script.Load("Version.lua")
 combatModifiedMessage = "This mod is not reflective of the standard NS2 experience!!"
 combatWelcomeMessage = {combatModifiedMessage,
-                        "This server is running a special Combat Mod V." .. kCombatLocalVersion .. ".",
-                        "This mod removes RTS elements and gives you upgrades for kills.",
-                        "Score = XP and Resources = Upgrade Points to use.",
+                       "KcK server is running TWEAKED LUA version of Combat Mod V." .. kCombatLocalVersion .. ".",
+                        "WARNING This co mod has server side tweaks  Suggestions Welcome.",
+
+
+                        "Score = XP and Resources = To Upgrade use B key.",
                         "For more information type /help in the chat or console."
                         }
 
@@ -41,9 +43,9 @@ kCombatAlienBuyMenuTotalAngle = 0.8
 kCombatAlienBuyMenuUpgradeButtonDistance = 210
 
 // Set the respawn timer
-kCombatRespawnTimer = 12
-kAlienWaveSpawnInterval = 12
-kCombatOvertimeRespawnTimer = 16
+kCombatRespawnTimer = 8
+kAlienWaveSpawnInterval = 8
+kCombatOvertimeRespawnTimer = 12
 
 // Rebalancing Intervals (secs)
 kCombatRebalanceInterval = 300
@@ -51,11 +53,11 @@ kCombatRebalanceInterval = 300
 // Spawning radius and retries.
 kSpawnMaxRetries = 50
 kSpawnMinDistance = 2
-kSpawnMaxDistance = 70
-kSpawnMaxVertical = 30
+kSpawnMaxDistance = 90
+kSpawnMaxVertical = 36
 kSpawnArmoryMaxRetries = 200
 kArmorySpawnMinDistance = 6
-kArmorySpawnMaxDistance = 60
+kArmorySpawnMaxDistance = 75
 
 // By default, Aliens win after a certain amount of time...
 // Specified in seconds...
@@ -72,15 +74,15 @@ kXPForgetTimer = 5
 
 // Timers for Scan, Resupply and Catalyst packs.
 kScanTimer = 14
-kResupplyTimer = 6
+kResupplyTimer = 5
 AmmoPack.kNumClips = 1
-kCatalystTimer = 14
+kCatalystTimer = 12
 // scan Duration, maybe we need to tune it a bit
-kScanDuration = 7
-kScanRadius = 40
+kScanDuration = 6
+kScanRadius = 45
 
 // Make these less "spammy"
-kEMPTimer = 30
+kEMPTimer = 25
 kInkTimer = 30
 // reduce ink amount a bit
 ShadeInk.kShadeInkDisorientRadius = 9
@@ -102,28 +104,28 @@ kPropEffectTimer = 2
 kGestateTime = {}
 kGestateTime[kTechId.Skulk] = 1
 kGestateTime[kTechId.Gorge] = 2
-kGestateTime[kTechId.Lerk] = 2
-kGestateTime[kTechId.Fade] = 3
-kGestateTime[kTechId.Onos] = 6
+kGestateTime[kTechId.Lerk] = 4
+kGestateTime[kTechId.Fade] = 6
+kGestateTime[kTechId.Onos] = 10
 kSkulkGestateTime = kGestateTime[kTechId.Skulk]
 
 // Spawn protection
-kCombatSpawnProtectDelay = 0.1
-kCombatMarineSpawnProtectTime = 2
+kCombatSpawnProtectDelay = 0.05
+kCombatMarineSpawnProtectTime = 2.8
 // nano shield = spawn Protection
 kNanoShieldDuration = kCombatMarineSpawnProtectTime 
 // Alien time includes time spent in the egg.
-kCombatAlienSpawnProtectTime = kSkulkGestateTime + 2
+kCombatAlienSpawnProtectTime = kSkulkGestateTime + 2.5
 
 // No eggs
-kAlienEggsPerHive = 0
+kAlienEggsPerHive = 3
 
 // Don't try to increase the Infestation radius above kMaxRadius - you will get errors in Infestation.lua
 //kHiveInfestationRadius = 20
 
 // Tweaks for weapons and upgrades
 // Camouflage
-kCamouflageTime = 2
+kCamouflageTime = 3
 kCamouflageUncloakFactor = 2 / 3
 
 // Gorge Healspray heals more (and makes a bit more damage)
@@ -131,7 +133,7 @@ kHealsprayDamage = 7
 // Conversely, reduce the welder's effectiveness from its original value of 150.
 kStructureWeldRate = 100
 // The rate at which players heal the hive/cc should be multiplied by this ratio.
-kHiveCCHealRate = 0.3
+kHiveCCHealRate = 0.4
 // The rate at which players gain XP for healing... relative to damage dealt.
 kHealXpRate = 1
 // Rate at which players gain XP for healing other players...
@@ -146,33 +148,38 @@ kPowerPointPointValue = 0
 kCombatPowerPointAutoRepairTime = 60
 
 // Alien vision should be free
-kAlienVisionCost = 0
-kAlienVisionEnergyRegenMod = 1
+kAlienVisionCost = 6
+kAlienVisionEnergyRegenMod = 2
 
 // kill hydras after some time if the owner isn't a gorge
-kHydraKillTime = 30
+kHydraKillTime = 60
 
 // Time delay for exo suits to power up.
-kExoPowerUpTime = 3
+kExoPowerUpTime = 2.5
 
 // decrease the exo dmg a bit (with lvl 3 it will be then a bit above the standard 25)
-kMinigunDamage = 20
+kMinigunDamage = 25
 
 // Flamethrower nerf
-kFlamethrowerDamage = 20
+kFlamethrowerDamage = 17
+
+// Shotgun 
+kShotgunDamage = 15
 
 // Grenade Launcher nerf
-kGrenadeLauncherGrenadeDamage = 135
+kGrenadeLauncherGrenadeDamage = 120
 
 // reduce the spike dmg a bit
-kSpikeMaxDamage = 10
-kSpikeMinDamage = 8
+kSpikeMaxDamage = 9
+kSpikeMinDamage = 7
 
 // Ammo for mines
-kNumMines = 1
+kNumMines = 2
+kMineDamage = 80
+kMineArmor = 60
 
 // number of handgrenaeds
-kMaxHandGrenades = 1
+kMaxHandGrenades = 2
 
 // Override the costs of each of our entries.
 // These won't take effect on the client side until we import this file into the client side mods
@@ -219,7 +226,7 @@ SetCachedTechData(kTechId.Web, kTechDataCostKey, kWebBuildCost)
 
 // Health values
 // Make the marine structures slightly less squishy...
-kArmoryHealth = 3500
+kArmoryHealth = 3800
 kCommandStationHealth = 6000
 
 // Range for evolving to Onos/Exo from the Hive/CommandStation
