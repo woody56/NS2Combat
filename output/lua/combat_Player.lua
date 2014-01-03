@@ -403,7 +403,7 @@ if Server then
 
     // Give XP to m8's around you when you kill an enemy
     function Player:GiveXpMatesNearby(xp)
-
+        if xp ~= nil then 
         xp = xp * mateXpAmount
 
         local playersInRange = GetEntitiesForTeamWithinRange("Player", self:GetTeamNumber(), self:GetOrigin(), mateXpRange)
